@@ -6,8 +6,10 @@ const Home: NextPage = () => {
   const [{ data, fetching, error }] = useFindMany(api.student, {
     sort: { createdAt: "Descending" },
     first: 30,
+   
   });
-console.log(data);
+  
+  console.log(data);
 
   return (
     <div>
