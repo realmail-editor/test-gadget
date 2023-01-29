@@ -1,6 +1,13 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import { Provider } from "@gadgetinc/react";
+import { AppProps } from "next/app";
+import { api } from "./api";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyNextApp({ Component, pageProps }: AppProps) {
+  return (
+    <Provider value={api.connection.currentClient}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
+
+export default MyNextApp;
